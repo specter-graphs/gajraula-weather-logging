@@ -1,1 +1,2 @@
 timestamp_utc,temperature_c,humidity_percent,wind_speed_kmh,wind_direction_deg,pressure_hpa,weather_code,aqi_us,pm2_5,pm10,co,no2,o3
+2026-08-07 00:32:38,26.0,95,11.1,50,975.2,3,90,38.1,38.2,345.0,19.9,54.0
