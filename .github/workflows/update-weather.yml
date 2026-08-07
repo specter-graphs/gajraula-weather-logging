@@ -2,7 +2,7 @@ name: Update Weather Data
 
 on:
   schedule:
-    - cron: '7 * * * *'   # runs every hour, at minute 7 (avoids :00 congestion)
+    - cron: '7 * * * *'   # runs every hour, at minute 7
   workflow_dispatch:        # allows manual runs from the Actions tab
 
 permissions:
@@ -39,3 +39,4 @@ jobs:
           git add data/weather_log.csv README.md
           git diff --staged --quiet || git commit -m "Auto-update weather data $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
+
