@@ -1,9 +1,9 @@
 # 🌦️ Weather & AQI Logger
 
-Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air Quality Every Hour At Minute 7
+Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air Quality Every Hour.
 
-- **Data source:** [Open-Meteo](https://open-meteo.com/) (free, no API key required)
-- **Update frequency:** every hour, via `.github/workflows/update-weather.yml`
+- **Data source:** [Open-Meteo](https://open-meteo.com/)
+- **Update frequency:** every hour, via .[cron-job](https://cron-job.org/)
 - **Raw data:** [`data/weather_log.csv`](data/weather_log.csv)
 
 ## 📊 Current Conditions
