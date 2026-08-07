@@ -1,6 +1,6 @@
 # 🌦️ Weather & AQI Logger
 
-Automated weather station — temperature, humidity, wind, pressure, and air quality (AQI), fetched **every hour** via GitHub Actions and logged straight into this repo.
+Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air Quality Every Hour At Minute 7
 
 - **Data source:** [Open-Meteo](https://open-meteo.com/) (free, no API key required)
 - **Update frequency:** every hour, via `.github/workflows/update-weather.yml`
