@@ -9,23 +9,24 @@ Automated weather station — temperature, humidity, wind, pressure, and air qua
 ## 📊 Current Conditions
 
 <!-- DATA-START -->
-**Last updated:** `2026-08-07 06:13:48 UTC`
+**Last updated:** `2026-08-07 09:22:20 UTC`
 
 | Metric | Value |
 |---|---|
-| 🌡️ Temperature | 30.6 °C |
-| 💧 Humidity | 77 % |
-| 💨 Wind Speed | 12.8 km/h |
-| 🧭 Wind Direction | 90° |
-| 🔵 Pressure | 976.6 hPa |
-| 🌫️ AQI (US) | 96 — Moderate 🟡 |
-| PM2.5 | 25.7 µg/m³ |
-| PM10 | 25.7 µg/m³ |
+| 🌡️ Temperature | 31.8 °C |
+| 💧 Humidity | 74 % |
+| 💨 Wind Speed | 11.3 km/h |
+| 🧭 Wind Direction | 63° |
+| 🔵 Pressure | 973.3 hPa |
+| 🌫️ AQI (US) | 98 — Moderate 🟡 |
+| PM2.5 | 24.6 µg/m³ |
+| PM10 | 24.7 µg/m³ |
 
-<details><summary>Last 3 readings</summary>
+<details><summary>Last 4 readings</summary>
 
 | Time (UTC) | Temp °C | AQI | Wind km/h | Humidity % |
 |---|---|---|---|---|
+| 2026-08-07 09:22:20 | 31.8 | 98 | 11.3 | 74 |
 | 2026-08-07 06:13:48 | 30.6 | 96 | 12.8 | 77 |
 | 2026-08-07 01:52:21 | 26.7 | 92 | 13.2 | 92 |
 | 2026-08-07 00:32:38 | 26.0 | 90 | 11.1 | 95 |
