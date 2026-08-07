@@ -50,6 +50,7 @@ def build_section(rows):
     lines.append("|---|---|")
     lines.append(f"| 🌡️ Temperature | {latest['temperature_c']} °C |")
     lines.append(f"| 💧 Humidity | {latest['humidity_percent']} % |")
+    lines.append(f"| 🌧️ Rain (last hr) | {latest.get('rain_mm') or '0'} mm |")
     lines.append(f"| 💨 Wind Speed | {latest['wind_speed_kmh']} km/h |")
     lines.append(f"| 🧭 Wind Direction | {latest['wind_direction_deg']}° |")
     lines.append(f"| 🔵 Pressure | {latest['pressure_hpa']} hPa |")
@@ -58,12 +59,12 @@ def build_section(rows):
     lines.append(f"| PM10 | {latest['pm10']} µg/m³ |")
     lines.append("")
     lines.append(f"<details><summary>Last {len(recent)} readings</summary>\n")
-    lines.append("| Time (UTC) | Temp °C | AQI | Wind km/h | Humidity % |")
-    lines.append("|---|---|---|---|---|")
+    lines.append("| Time (UTC) | Temp °C | Rain mm | AQI | Wind km/h | Humidity % |")
+    lines.append("|---|---|---|---|---|---|")
     for r in recent:
         lines.append(
-            f"| {r['timestamp_utc']} | {r['temperature_c']} | {r['aqi_us']} | "
-            f"{r['wind_speed_kmh']} | {r['humidity_percent']} |"
+            f"| {r['timestamp_utc']} | {r['temperature_c']} | {r.get('rain_mm') or '0'} | "
+            f"{r['aqi_us']} | {r['wind_speed_kmh']} | {r['humidity_percent']} |"
         )
     lines.append("\n</details>")
 
