@@ -9,7 +9,7 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 ## 📊 Current Conditions
 
 <!-- DATA-START -->
-**Last updated:** `2026-08-09 04:30:30 UTC`
+**Last updated:** `2026-08-09 04:42:12 UTC`
 
 | Metric | Value |
 |---|---|
@@ -27,6 +27,7 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 
 | Time (UTC) | Temp °C | Rain mm | AQI | Wind km/h | Humidity % |
 |---|---|---|---|---|---|
+| 2026-08-09 04:42:12 | 30.7 | 0.0 | 101 | 10.0 | 78 |
 | 2026-08-09 04:30:30 | 30.7 | 0.0 | 101 | 10.0 | 78 |
 | 2026-08-09 03:30:22 | 29.5 | 0.0 | 102 | 12.1 | 84 |
 | 2026-08-09 02:30:22 | 28.9 | 0.1 | 102 | 10.4 | 87 |
@@ -50,7 +51,6 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 | 2026-08-08 08:30:22 | 31.0 | 0.0 | 99 | 13.4 | 79 |
 | 2026-08-08 07:30:22 | 31.1 | 0.1 | 98 | 15.1 | 78 |
 | 2026-08-08 06:30:23 | 31.4 | 0.0 | 97 | 18.0 | 75 |
-| 2026-08-08 05:30:31 | 30.6 | 0.0 | 96 | 17.4 | 77 |
 
 </details>
 <!-- DATA-END -->
@@ -66,7 +66,12 @@ Every logged metric for yesterday (the last fully completed day, midnight-to-mid
 The last 7 days of full-day trend charts, newest first.
 
 <!-- HISTORY-START -->
-No chart history yet.
+<details><summary>Last 1 day(s)</summary>
+
+**2026-08-08**
+![2026-08-08 trend](data/chart-history/2026-08-08.png)
+
+</details>
 <!-- HISTORY-END -->
 
 ## 📁 Repo structure
