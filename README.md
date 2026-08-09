@@ -55,6 +55,24 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 </details>
 <!-- DATA-END -->
 
+## 📈 Full-Day Trend
+
+Every logged metric for yesterday (the last fully completed day, midnight-to-midnight IST), normalized to its own range so temperature, AQI, humidity, and the rest can be compared by shape on one chart. Only changes once a day, when a new day rolls over.
+
+![Full-day trend chart](data/day_chart.png)
+
+## 🗂️ Chart History
+
+The last 7 days of full-day trend charts, newest first.
+
+<!-- HISTORY-START -->
+<details><summary>Last 1 day(s)</summary>
+
+**2026-08-08**
+![2026-08-08 trend](data/chart-history/2026-08-08.png)
+
+</details>
+<!-- HISTORY-END -->
 
 ## 📁 Repo structure
 
@@ -62,8 +80,11 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 weather-logger/
 ├── .github/workflows/update-weather.yml
 ├── data/weather_log.csv
+├── data/day_chart.png
+├── data/chart-history/        # rolling last 7 days, e.g. 2026-08-08.png
 ├── scripts/fetch_weather.py
 ├── scripts/update_readme.py
+├── scripts/generate_chart.py
 ├── README.md
 └── requirements.txt
 ```
