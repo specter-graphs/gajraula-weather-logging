@@ -27,6 +27,9 @@ jobs:
       - name: Fetch weather + AQI data
         run: python scripts/fetch_weather.py
 
+      - name: Generate full-day trend chart
+        run: python scripts/generate_chart.py
+
       - name: Update README
         run: python scripts/update_readme.py
 
@@ -34,6 +37,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/weather_log.csv README.md
+          git add data/weather_log.csv data/day_chart.png data/chart-history README.md
           git diff --staged --quiet || git commit -m "Auto-update weather data $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
