@@ -1,15 +1,18 @@
 """
-Read data/weather_log.csv and rewrite the auto-generated section of
-README.md between the DATA-START / DATA-END markers.
+Read data/weather_log.csv and rewrite the auto-generated sections of
+README.md between the DATA-START/END and HISTORY-START/END markers.
 """
 import csv
 import os
 
 CSV_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "weather_log.csv")
+HISTORY_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "chart-history")
 README_PATH = os.path.join(os.path.dirname(__file__), "..", "README.md")
 
 START_MARKER = "<!-- DATA-START -->"
 END_MARKER = "<!-- DATA-END -->"
+HIST_START_MARKER = "<!-- HISTORY-START -->"
+HIST_END_MARKER = "<!-- HISTORY-END -->"
 
 
 def aqi_category(aqi):
@@ -71,8 +74,28 @@ def build_section(rows):
     return "\n".join(lines)
 
 
+def build_history_section():
+    if not os.path.isdir(HISTORY_DIR):
+        return "No chart history yet."
+
+    files = sorted(
+        (f for f in os.listdir(HISTORY_DIR) if f.endswith(".png")),
+        reverse=True,  # newest first
+    )
+    if not files:
+        return "No chart history yet."
+
+    lines = [f"<details><summary>Last {len(files)} day(s)</summary>\n"]
+    for f in files:
+        date_str = f[:-4]  # strip ".png"
+        lines.append(f"**{date_str}**")
+        lines.append(f"![{date_str} trend](data/chart-history/{f})\n")
+    lines.append("</details>")
+
+    return "\n".join(lines)
+
+
 def update_readme():
-    section = build_section(read_rows())
     if not os.path.isfile(README_PATH):
         raise FileNotFoundError("README.md not found")
 
@@ -82,12 +105,19 @@ def update_readme():
     if START_MARKER not in content or END_MARKER not in content:
         raise ValueError(f"README.md must contain {START_MARKER} and {END_MARKER} markers")
 
+    section = build_section(read_rows())
     pre = content.split(START_MARKER)[0]
     post = content.split(END_MARKER)[1]
-    new_content = f"{pre}{START_MARKER}\n{section}\n{END_MARKER}{post}"
+    content = f"{pre}{START_MARKER}\n{section}\n{END_MARKER}{post}"
+
+    if HIST_START_MARKER in content and HIST_END_MARKER in content:
+        history_section = build_history_section()
+        pre = content.split(HIST_START_MARKER)[0]
+        post = content.split(HIST_END_MARKER)[1]
+        content = f"{pre}{HIST_START_MARKER}\n{history_section}\n{HIST_END_MARKER}{post}"
 
     with open(README_PATH, "w") as f:
-        f.write(new_content)
+        f.write(content)
 
     print("README.md updated.")
 
