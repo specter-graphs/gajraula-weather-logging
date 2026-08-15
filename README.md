@@ -9,24 +9,25 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 ## 📊 Current Conditions
 
 <!-- DATA-START -->
-**Last updated:** `2026-08-15 17:30:35 UTC`
+**Last updated:** `2026-08-15 18:30:35 UTC`
 
 | Metric | Value |
 |---|---|
-| 🌡️ Temperature | 28.3 °C |
-| 💧 Humidity | 92 % |
-| 🌧️ Rain (last hr) | 0.0 mm |
-| 💨 Wind Speed | 3.0 km/h |
-| 🧭 Wind Direction | 163° |
-| 🔵 Pressure | 978.2 hPa |
-| 🌫️ AQI (US) | 114 — Unhealthy for Sensitive Groups 🟠 |
-| PM2.5 | 70.3 µg/m³ |
-| PM10 | 73.1 µg/m³ |
+| 🌡️ Temperature | 27.5 °C |
+| 💧 Humidity | 93 % |
+| 🌧️ Rain (last hr) | 0.1 mm |
+| 💨 Wind Speed | 5.5 km/h |
+| 🧭 Wind Direction | 131° |
+| 🔵 Pressure | 978.3 hPa |
+| 🌫️ AQI (US) | 116 — Unhealthy for Sensitive Groups 🟠 |
+| PM2.5 | 69.4 µg/m³ |
+| PM10 | 71.7 µg/m³ |
 
 <details><summary>Last 24 readings</summary>
 
 | Time (UTC) | Temp °C | Rain mm | AQI | Wind km/h | Humidity % |
 |---|---|---|---|---|---|
+| 2026-08-15 18:30:35 | 27.5 | 0.1 | 116 | 5.5 | 93 |
 | 2026-08-15 17:30:35 | 28.3 | 0.0 | 114 | 3.0 | 92 |
 | 2026-08-15 16:30:32 | 28.7 | 0.0 | 112 | 1.5 | 89 |
 | 2026-08-15 15:30:28 | 29.1 | 0.0 | 121 | 1.0 | 87 |
@@ -50,7 +51,6 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 | 2026-08-14 21:30:28 | 26.8 | 0.0 | 108 | 2.6 | 96 |
 | 2026-08-14 20:30:30 | 26.9 | 0.0 | 109 | 2.8 | 95 |
 | 2026-08-14 19:30:31 | 27.1 | 0.0 | 109 | 0.4 | 95 |
-| 2026-08-14 18:30:29 | 26.8 | 0.0 | 108 | 1.1 | 95 |
 
 </details>
 <!-- DATA-END -->
@@ -67,6 +67,9 @@ The last 7 days of full-day trend charts, newest first.
 
 <!-- HISTORY-START -->
 <details><summary>Last 7 day(s)</summary>
+
+**2026-08-15**
+![2026-08-15 trend](data/chart-history/2026-08-15.png)
 
 **2026-08-14**
 ![2026-08-14 trend](data/chart-history/2026-08-14.png)
@@ -85,9 +88,6 @@ The last 7 days of full-day trend charts, newest first.
 
 **2026-08-09**
 ![2026-08-09 trend](data/chart-history/2026-08-09.png)
-
-**2026-08-08**
-![2026-08-08 trend](data/chart-history/2026-08-08.png)
 
 </details>
 <!-- HISTORY-END -->
