@@ -9,24 +9,25 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 ## 📊 Current Conditions
 
 <!-- DATA-START -->
-**Last updated:** `2026-08-18 17:30:33 UTC`
+**Last updated:** `2026-08-18 18:30:31 UTC`
 
 | Metric | Value |
 |---|---|
-| 🌡️ Temperature | 26.6 °C |
-| 💧 Humidity | 95 % |
+| 🌡️ Temperature | 26.5 °C |
+| 💧 Humidity | 96 % |
 | 🌧️ Rain (last hr) | 0.0 mm |
-| 💨 Wind Speed | 2.9 km/h |
-| 🧭 Wind Direction | 4° |
-| 🔵 Pressure | 980.0 hPa |
-| 🌫️ AQI (US) | 119 — Unhealthy for Sensitive Groups 🟠 |
-| PM2.5 | 41.4 µg/m³ |
-| PM10 | 49.8 µg/m³ |
+| 💨 Wind Speed | 2.1 km/h |
+| 🧭 Wind Direction | 15° |
+| 🔵 Pressure | 979.7 hPa |
+| 🌫️ AQI (US) | 115 — Unhealthy for Sensitive Groups 🟠 |
+| PM2.5 | 40.6 µg/m³ |
+| PM10 | 50.2 µg/m³ |
 
 <details><summary>Last 24 readings</summary>
 
 | Time (UTC) | Temp °C | Rain mm | AQI | Wind km/h | Humidity % |
 |---|---|---|---|---|---|
+| 2026-08-18 18:30:31 | 26.5 | 0.0 | 115 | 2.1 | 96 |
 | 2026-08-18 17:30:33 | 26.6 | 0.0 | 119 | 2.9 | 95 |
 | 2026-08-18 16:30:35 | 26.7 | 0.0 | 124 | 3.4 | 94 |
 | 2026-08-18 15:30:32 | 26.9 | 0.0 | 128 | 2.4 | 93 |
@@ -50,7 +51,6 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 | 2026-08-17 21:30:32 | 25.3 | 0.2 | 155 | 2.2 | 96 |
 | 2026-08-17 20:30:32 | 25.5 | 0.1 | 155 | 0.7 | 96 |
 | 2026-08-17 19:30:32 | 25.6 | 0.1 | 155 | 4.9 | 96 |
-| 2026-08-17 18:30:35 | 25.7 | 0.1 | 154 | 1.5 | 97 |
 
 </details>
 <!-- DATA-END -->
@@ -67,6 +67,9 @@ The last 7 days of full-day trend charts, newest first.
 
 <!-- HISTORY-START -->
 <details><summary>Last 7 day(s)</summary>
+
+**2026-08-18**
+![2026-08-18 trend](data/chart-history/2026-08-18.png)
 
 **2026-08-17**
 ![2026-08-17 trend](data/chart-history/2026-08-17.png)
@@ -85,9 +88,6 @@ The last 7 days of full-day trend charts, newest first.
 
 **2026-08-12**
 ![2026-08-12 trend](data/chart-history/2026-08-12.png)
-
-**2026-08-11**
-![2026-08-11 trend](data/chart-history/2026-08-11.png)
 
 </details>
 <!-- HISTORY-END -->
