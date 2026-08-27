@@ -63,10 +63,10 @@ Every logged metric for yesterday (the last fully completed day, midnight-to-mid
 
 ## 🗂️ Chart History
 
-The last 7 days of full-day trend charts, newest first.
+Every day's full-day trend chart, newest first. No retention limit — this grows forever.
 
 <!-- HISTORY-START -->
-<details><summary>Last 7 day(s)</summary>
+<details><summary>Last 20 day(s)</summary>
 
 **2026-08-26**
 ![2026-08-26 trend](data/chart-history/2026-08-26.png)
@@ -89,6 +89,45 @@ The last 7 days of full-day trend charts, newest first.
 **2026-08-20**
 ![2026-08-20 trend](data/chart-history/2026-08-20.png)
 
+**2026-08-19**
+![2026-08-19 trend](data/chart-history/2026-08-19.png)
+
+**2026-08-18**
+![2026-08-18 trend](data/chart-history/2026-08-18.png)
+
+**2026-08-17**
+![2026-08-17 trend](data/chart-history/2026-08-17.png)
+
+**2026-08-16**
+![2026-08-16 trend](data/chart-history/2026-08-16.png)
+
+**2026-08-15**
+![2026-08-15 trend](data/chart-history/2026-08-15.png)
+
+**2026-08-14**
+![2026-08-14 trend](data/chart-history/2026-08-14.png)
+
+**2026-08-13**
+![2026-08-13 trend](data/chart-history/2026-08-13.png)
+
+**2026-08-12**
+![2026-08-12 trend](data/chart-history/2026-08-12.png)
+
+**2026-08-11**
+![2026-08-11 trend](data/chart-history/2026-08-11.png)
+
+**2026-08-10**
+![2026-08-10 trend](data/chart-history/2026-08-10.png)
+
+**2026-08-09**
+![2026-08-09 trend](data/chart-history/2026-08-09.png)
+
+**2026-08-08**
+![2026-08-08 trend](data/chart-history/2026-08-08.png)
+
+**2026-08-07**
+![2026-08-07 trend](data/chart-history/2026-08-07.png)
+
 </details>
 <!-- HISTORY-END -->
 
@@ -99,10 +138,11 @@ weather-logger/
 ├── .github/workflows/update-weather.yml
 ├── data/weather_log.csv
 ├── data/day_chart.png
-├── data/chart-history/        # rolling last 7 days, e.g. 2026-08-08.png
+├── data/chart-history/        # every day, unlimited, e.g. 2026-08-08.png
 ├── scripts/fetch_weather.py
 ├── scripts/update_readme.py
 ├── scripts/generate_chart.py
+├── scripts/backfill_chart_history.py
 ├── README.md
 └── requirements.txt
 ```
