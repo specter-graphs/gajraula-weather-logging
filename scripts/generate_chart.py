@@ -1,6 +1,7 @@
 """
 Generate a full previous-day trend chart from data/weather_log.csv, and
-keep a rolling week of them in data/chart-history/.
+keep every one of them in data/chart-history/ (no retention limit - the
+history grows forever, one PNG per calendar day).
 
 Always plots "yesterday" - the last fully completed calendar day in
 IST (00:00-23:59) - rather than a rolling last-24h window. That means
@@ -10,8 +11,11 @@ so the committed PNGs don't churn the repo's git history every hour.
 
 Each day's chart is saved as data/chart-history/YYYY-MM-DD.png, and the
 same image is copied to data/day_chart.png (a stable "latest" filename
-for the main README section to embed). Anything in chart-history/ older
-than KEEP_DAYS is deleted, so the folder only ever holds the last week.
+for the main README section to embed).
+
+To backfill charts for older days already in the CSV (e.g. to restore
+ones an earlier, day-limited version of this script deleted), run
+scripts/backfill_chart_history.py.
 
 Every logged metric is min-max normalized to a 0-100 scale so wildly
 different units (C, %, ug/m3, hPa...) can be compared by shape on one
@@ -30,7 +34,6 @@ import matplotlib.pyplot as plt
 CSV_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "weather_log.csv")
 OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "day_chart.png")
 HISTORY_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "chart-history")
-KEEP_DAYS = 7
 
 IST = timezone(timedelta(hours=5, minutes=30))
 
@@ -76,25 +79,28 @@ def load_rows():
         return rows
 
 
-def main():
-    rows = load_rows()
-    if not rows:
-        print("No data yet, skipping chart.")
-        return
+def day_window(rows, day_date):
+    """Return (day_start_ist, day_end_ist, window) for a given IST calendar date.
 
-    latest_utc = max(ts for ts, _ in rows)
-    yesterday_ist_date = latest_utc.astimezone(IST).date() - timedelta(days=1)
-    day_start_ist = datetime.combine(yesterday_ist_date, datetime.min.time(), tzinfo=IST)
+    window is the subset of (timestamp, row) pairs falling in that day,
+    sorted chronologically.
+    """
+    day_start_ist = datetime.combine(day_date, datetime.min.time(), tzinfo=IST)
     day_end_ist = day_start_ist + timedelta(days=1)
-
     window = sorted(
         (pair for pair in rows if day_start_ist <= pair[0].astimezone(IST) < day_end_ist),
         key=lambda p: p[0],
     )
+    return day_start_ist, day_end_ist, window
 
+
+def render_day_chart(day_date, day_start_ist, day_end_ist, window, out_path):
+    """Render the normalized multi-metric trend chart for one day to out_path.
+
+    Returns True if a chart was drawn, False if there wasn't enough data.
+    """
     if len(window) < 2:
-        print(f"No data logged for {yesterday_ist_date}, skipping chart.")
-        return
+        return False
 
     times_ist = [ts.astimezone(IST) for ts, _ in window]
 
@@ -131,9 +137,8 @@ def main():
         plotted_any = True
 
     if not plotted_any:
-        print(f"No plottable series for {yesterday_ist_date}, skipping chart.")
         plt.close(fig)
-        return
+        return False
 
     ax.set_ylabel("Relative to each metric's own daily range (%)", fontsize=10, color="#555")
     ax.set_ylim(-5, 105)
@@ -166,27 +171,31 @@ def main():
     )
 
     fig.tight_layout()
-    os.makedirs(HISTORY_DIR, exist_ok=True)
-    dated_path = os.path.join(HISTORY_DIR, f"{yesterday_ist_date.isoformat()}.png")
-    fig.savefig(dated_path, facecolor="white", bbox_inches="tight")
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    fig.savefig(out_path, facecolor="white", bbox_inches="tight")
     plt.close(fig)
+    return True
+
+
+def main():
+    rows = load_rows()
+    if not rows:
+        print("No data yet, skipping chart.")
+        return
+
+    latest_utc = max(ts for ts, _ in rows)
+    yesterday_ist_date = latest_utc.astimezone(IST).date() - timedelta(days=1)
+    day_start_ist, day_end_ist, window = day_window(rows, yesterday_ist_date)
+
+    dated_path = os.path.join(HISTORY_DIR, f"{yesterday_ist_date.isoformat()}.png")
+    ok = render_day_chart(yesterday_ist_date, day_start_ist, day_end_ist, window, dated_path)
+    if not ok:
+        print(f"No data logged for {yesterday_ist_date}, skipping chart.")
+        return
 
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
     shutil.copyfile(dated_path, OUT_PATH)
     print(f"Chart saved to {dated_path} (and copied to {OUT_PATH})")
-
-    prune_history()
-
-
-def prune_history():
-    """Keep only the most recent KEEP_DAYS charts in HISTORY_DIR."""
-    if not os.path.isdir(HISTORY_DIR):
-        return
-    files = sorted(f for f in os.listdir(HISTORY_DIR) if f.endswith(".png"))
-    excess = len(files) - KEEP_DAYS
-    for f in files[:max(excess, 0)]:
-        os.remove(os.path.join(HISTORY_DIR, f))
-        print(f"Removed old chart from history: {f}")
 
 
 if __name__ == "__main__":
