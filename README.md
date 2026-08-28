@@ -9,24 +9,25 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 ## 📊 Current Conditions
 
 <!-- DATA-START -->
-**Last updated:** `2026-08-27 23:30:32 UTC`
+**Last updated:** `2026-08-28 00:30:32 UTC`
 
 | Metric | Value |
 |---|---|
-| 🌡️ Temperature | 26.4 °C |
-| 💧 Humidity | 96 % |
-| 🌧️ Rain (last hr) | 0.1 mm |
-| 💨 Wind Speed | 5.2 km/h |
-| 🧭 Wind Direction | 104° |
-| 🔵 Pressure | 977.6 hPa |
-| 🌫️ AQI (US) | 155 — Unhealthy 🔴 |
+| 🌡️ Temperature | 27.1 °C |
+| 💧 Humidity | 95 % |
+| 🌧️ Rain (last hr) | 0.0 mm |
+| 💨 Wind Speed | 2.3 km/h |
+| 🧭 Wind Direction | 86° |
+| 🔵 Pressure | 977.4 hPa |
+| 🌫️ AQI (US) | 158 — Unhealthy 🔴 |
 | PM2.5 | 146.7 µg/m³ |
-| PM10 | 155.1 µg/m³ |
+| PM10 | 152.3 µg/m³ |
 
 <details><summary>Last 24 readings</summary>
 
 | Time (UTC) | Temp °C | Rain mm | AQI | Wind km/h | Humidity % |
 |---|---|---|---|---|---|
+| 2026-08-28 00:30:32 | 27.1 | 0.0 | 158 | 2.3 | 95 |
 | 2026-08-27 23:30:32 | 26.4 | 0.1 | 155 | 5.2 | 96 |
 | 2026-08-27 22:30:35 | 26.9 | 0.0 | 153 | 1.0 | 95 |
 | 2026-08-27 21:30:37 | 27.0 | 0.0 | 151 | 2.1 | 95 |
@@ -50,7 +51,6 @@ Automated Weather Logger. Logs Temperature,Humidity,Wind speed, Pressure and Air
 | 2026-08-27 03:30:29 | 27.9 | 0.1 | 149 | 9.9 | 87 |
 | 2026-08-27 02:30:34 | 27.0 | 0.1 | 150 | 7.8 | 93 |
 | 2026-08-27 01:30:30 | 26.3 | 0.1 | 150 | 9.6 | 97 |
-| 2026-08-27 00:30:29 | 26.1 | 0.0 | 150 | 9.9 | 98 |
 
 </details>
 <!-- DATA-END -->
